@@ -1,0 +1,22 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="128pt" height="128pt" viewBox="0 0 128 128"
+     xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="prefix__a">
+            <stop offset=".1" stop-color="#fff"/>
+            <stop offset=".9"/>
+        </linearGradient>
+        <linearGradient id="prefix__b">
+            <stop offset=".654" stop-color="#fff"/>
+            <stop offset=".962"/>
+        </linearGradient>
+        <linearGradient xlink:href="#prefix__a" id="prefix__c" x1="173.849" y1="80.668" x2="178.224" y2="80.668"
+                        gradientUnits="userSpaceOnUse" gradientTransform="translate(-698.74 -304.77) scale(4.57143)"/>
+        <radialGradient xlink:href="#prefix__b" id="prefix__d" cx="168.037" cy="80.668" fx="168.037" fy="80.668" r="10"
+                        gradientUnits="userSpaceOnUse" spreadMethod="pad"
+                        gradientTransform="matrix(5.2 0 0 5.2 -809.793 -355.475)"/>
+    </defs>
+    <path d="M106 64v42" fill="none" stroke="url(#prefix__c)" stroke-width="20" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <circle cy="64" cx="64" r="42" fill="none" stroke="url(#prefix__d)" stroke-width="20" stroke-linecap="round"
+            stroke-linejoin="round"/>
+</svg>

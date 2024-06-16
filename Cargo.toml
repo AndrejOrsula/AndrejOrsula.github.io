@@ -1,0 +1,63 @@
+[package]
+name = "portfolio_andrejorsula"
+authors = ["Andrej Orsula <orsula.andrej@gmail.com>"]
+description = "Portfolio of Andrej Orsula"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/AndrejOrsula/AndrejOrsula.github.io"
+homepage = "https://AndrejOrsula.github.io"
+publish = false
+rust-version = "1.76"
+version = "0.1.0"
+
+[dependencies]
+## Core
+eframe = { version = "0.27", default-features = false, features = [
+    "glow",
+    "persistence",
+] }
+egui = { version = "0.27", default-features = false }
+egui_extras = { version = "0.27", default-features = false, features = [
+    "all_loaders",
+    "syntect",
+] }
+egui_commonmark = { version = "0.16", default-features = false, features = [
+    "better_syntax_highlighting",
+    "macros",
+    "pulldown_cmark",
+] }
+## Encoding
+# Note: The `image` crate is held back at 0.24 due to encoding issues on wasm32
+image = { version = "0.24", default-features = false, features = ["png"] }
+## Parsing
+biblatex = { version = "0.9" }
+serde = { version = "1", features = ["derive"] }
+## Utilities
+include_dir = { version = "0.7" }
+itertools = { version = "0.13" }
+paste = { version = "1.0" }
+rustc-hash = { version = "1.1" }
+strum = { version = "0.26", features = ["derive"] }
+typed-builder = { version = "0.18" }
+
+## Native
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+env_logger = { version = "0.11" }
+# Target-specific features
+eframe = { version = "*", features = ["accesskit"] }
+image = { version = "*", features = ["ico"] }
+
+## Web
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen-futures = { version = "0.4" }
+log = { version = "0.4" }
+# Target-specific features
+eframe = { version = "*", features = ["web_screen_reader"] }
+
+[dev-dependencies]
+indoc = { version = "2" }
+
+[profile.release]
+opt-level = 's'
+lto = true

@@ -1,0 +1,21 @@
+{
+  "name": "Portfolio of Andrej Orsula",
+  "short_name": "portfolio_andrejorsula",
+  "lang": "en-US",
+  "id": "/index.html",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "white",
+  "theme_color": "white",
+  "icons": [
+    {
+      "src": "./icons/favicon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./icons/favicon.ico",
+      "sizes": "16x16 24x24 32x32 48x48 64x64 128x128",
+      "type": "image/x-icon"
+    }
+  ]
+}
