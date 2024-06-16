@@ -29,7 +29,7 @@ egui_commonmark = { version = "0.16", default-features = false, features = [
 ] }
 ## Encoding
 # Note: The `image` crate is held back at 0.24 due to encoding issues on wasm32
-image = { version = "0.24", default-features = false, features = ["png"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
 ## Parsing
 biblatex = { version = "0.9" }
 serde = { version = "1", features = ["derive"] }
