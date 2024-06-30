@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
   release:
-    types: [ published ]
+    types: [published]
   workflow_dispatch:
 
 concurrency:
@@ -14,7 +14,9 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 env:
   MSRV: "1.76"
@@ -159,8 +161,7 @@ jobs:
         with:
           command: check bans licenses sources
 
-  deploy:
-    if: ${{ github.event_name != 'pull_request' }}
+  build:
     needs:
       - cargo_wasm32
       - deny
@@ -177,8 +178,19 @@ jobs:
         run: wget -qO- https://github.com/thedodd/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
       - name: Build
         run: ./trunk build --release --public-url "https://${{ github.repository_owner }}.github.io"
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: dist
-          single-commit: true
+          path: dist
+
+  deploy:
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
