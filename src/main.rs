@@ -11,7 +11,7 @@ fn main() {
                     follow_system_theme: false,
                     ..Default::default()
                 },
-                Box::new(|cc| Box::new(portfolio_andrejorsula::App::new(cc))),
+                Box::new(|cc| Ok(Box::new(portfolio_andrejorsula::App::new(cc)))),
             )
             .await
             .unwrap();
@@ -45,6 +45,6 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         portfolio_andrejorsula::AUTHOR_NAME_FULL,
         native_options,
-        Box::new(|cc| Box::new(portfolio_andrejorsula::App::new(cc))),
+        Box::new(|cc| Ok(Box::new(portfolio_andrejorsula::App::new(cc)))),
     )
 }
