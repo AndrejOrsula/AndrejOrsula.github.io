@@ -28,7 +28,7 @@ impl std::fmt::Display for Page {
 }
 
 impl Page {
-    pub fn title(&self) -> &str {
+    pub fn title(self) -> &'static str {
         match self {
             Self::About => "About",
             Self::Research => "Research",
@@ -40,7 +40,7 @@ impl Page {
         }
     }
 
-    pub fn description(&self) -> &str {
+    pub fn description(self) -> &'static str {
         match self {
             Self::About => "About me",
             Self::Research => "Research endeavors",
@@ -53,10 +53,10 @@ impl Page {
     }
 
     #[cfg(target_arch = "wasm32")]
-    pub fn redirect_path(&self) -> &str {
+    pub fn redirect_page(self) -> bool {
         match self {
-            Self::Cv => "/",
-            _ => "#",
+            Self::Cv => true,
+            _ => false,
         }
     }
 

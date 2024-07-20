@@ -74,6 +74,11 @@ impl eframe::App for App {
             {
                 // If a known page was requested, update the current page
                 self.current_page = page;
+
+                // If the page is a redirect, redirect to it
+                if self.current_page.redirect_page() {
+                    crate::utils::egui::open_url_on_page(ctx, self.current_page, true);
+                }
             } else {
                 // If an unknown page was requested, update the URL to open the default page
                 crate::utils::egui::open_url_on_page(ctx, Page::default(), true);

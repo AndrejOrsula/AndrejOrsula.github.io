@@ -49,7 +49,7 @@ impl ScrollableFramedCentralPanel {
 pub fn open_url_on_page(ctx: &egui::Context, page: crate::page::Page, same_tab: bool) {
     let target_url = format!(
         "{}{}",
-        page.redirect_path(),
+        if page.redirect_page() { '/' } else { '#' },
         page.to_string().to_lowercase()
     );
     ctx.open_url(if same_tab {
