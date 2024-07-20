@@ -52,6 +52,14 @@ impl Page {
         }
     }
 
+    #[cfg(target_arch = "wasm32")]
+    pub fn redirect_path(&self) -> &str {
+        match self {
+            Self::Cv => "/",
+            _ => "#",
+        }
+    }
+
     pub fn default_app(self) -> Box<dyn eframe::App> {
         match self {
             Self::About => Box::<AboutPage>::default(),

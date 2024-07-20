@@ -21,7 +21,7 @@ fn main() {
             .and_then(|d| d.get_element_by_id("tmp_loading_screen"))
         {
             match result {
-                Ok(_) => {
+                Ok(()) => {
                     loading_text.remove();
                 }
                 Err(err) => {

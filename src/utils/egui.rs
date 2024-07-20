@@ -47,7 +47,11 @@ impl ScrollableFramedCentralPanel {
 
 #[cfg(target_arch = "wasm32")]
 pub fn open_url_on_page(ctx: &egui::Context, page: crate::page::Page, same_tab: bool) {
-    let target_url = format!("#{}", page.to_string().to_lowercase());
+    let target_url = format!(
+        "{}{}",
+        page.redirect_path(),
+        page.to_string().to_lowercase()
+    );
     ctx.open_url(if same_tab {
         egui::OpenUrl::same_tab(target_url)
     } else {

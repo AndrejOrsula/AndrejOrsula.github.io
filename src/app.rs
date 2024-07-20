@@ -184,6 +184,11 @@ impl eframe::App for App {
 impl App {
     fn navigation_buttons(&mut self, ui: &mut egui::Ui) {
         for page in crate::ENABLED_PAGES {
+            // Add a separator if requested
+            if crate::SEPARATE_MENU_AT.contains(&page) {
+                ui.separator();
+            }
+
             if self.current_page == page {
                 ui.add(egui::Button::new(page.title()))
                     .highlight()
