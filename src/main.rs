@@ -4,7 +4,7 @@ fn main() {
     eframe::WebLogger::init(log::LevelFilter::max()).ok();
 
     wasm_bindgen_futures::spawn_local(async {
-        eframe::WebRunner::new()
+        let result = eframe::WebRunner::new()
             .start(
                 "egui_canvas",
                 eframe::WebOptions {
@@ -13,8 +13,25 @@ fn main() {
                 },
                 Box::new(|cc| Ok(Box::new(portfolio_andrejorsula::App::new(cc)))),
             )
-            .await
-            .unwrap();
+            .await;
+
+        // Remove the loading text and spinner:
+        if let Some(loading_text) = web_sys::window()
+            .and_then(|w| w.document())
+            .and_then(|d| d.get_element_by_id("tmp_loading_screen"))
+        {
+            match result {
+                Ok(_) => {
+                    loading_text.remove();
+                }
+                Err(err) => {
+                    loading_text.set_inner_html(
+                        "<p>An error occurred while loading the page. Please try again later.</p>",
+                    );
+                    panic!("Failed to start the web app: {err:?}");
+                }
+            }
+        }
     });
 }
 

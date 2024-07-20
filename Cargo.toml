@@ -50,6 +50,7 @@ image = { version = "*", features = ["ico"] }
 ## Web
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 wasm-bindgen-futures = { version = "0.4" }
+web-sys = { version = "0.3" }
 log = { version = "0.4" }
 # Target-specific features
 eframe = { version = "*", features = ["web_screen_reader"] }
