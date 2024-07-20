@@ -4,6 +4,7 @@ use crate::page::Page;
 #[serde(default)]
 pub struct App {
     theme: eframe::Theme,
+    #[serde(skip)]
     current_page: Page,
     #[serde(skip)]
     pages: rustc_hash::FxHashMap<Page, Box<dyn eframe::App>>,
