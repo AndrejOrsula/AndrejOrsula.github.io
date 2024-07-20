@@ -46,17 +46,17 @@ impl Page {
             Self::Research => "Research endeavors",
             Self::Teaching => "Teaching materials",
             Self::Software => "Software projects",
-            Self::Cv => "Curriculum vitae",
-            Self::Blog => "My Blog",
+            Self::Cv => "Curriculum Vitae",
+            Self::Blog => "Blog",
             Self::Demos => "Online demos",
         }
     }
 
     #[cfg(target_arch = "wasm32")]
-    pub fn redirect_page(self) -> bool {
+    pub fn redirect_page(self) -> Option<&'static str> {
         match self {
-            Self::Cv => true,
-            _ => false,
+            Self::Cv => Some(crate::CV_URL),
+            _ => None,
         }
     }
 

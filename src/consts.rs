@@ -45,3 +45,4 @@ pub const ORCID_URL: &str = "https://orcid.org/0000-0003-0706-1191";
 pub const SCHOLAR_URL: &str = "https://scholar.google.com/citations?user=sbQC2dAAAAAJ";
 pub const YOUTUBE_URL: &str = "https://youtube.com/channel/UCqatO1yebNRswWSO2fxRWTg";
 pub const GITHUB_URL: &str = "https://github.com/AndrejOrsula";
+pub const CV_URL: &str = "/cv/cv_AndrejOrsula.pdf";

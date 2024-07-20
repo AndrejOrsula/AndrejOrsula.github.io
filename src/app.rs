@@ -76,7 +76,7 @@ impl eframe::App for App {
                 self.current_page = page;
 
                 // If the page is a redirect, redirect to it
-                if self.current_page.redirect_page() {
+                if self.current_page.redirect_page().is_some() {
                     crate::utils::egui::open_url_on_page(ctx, self.current_page, true);
                 }
             } else {
