@@ -8,7 +8,7 @@ readme = "README.md"
 repository = "https://github.com/AndrejOrsula/AndrejOrsula.github.io"
 homepage = "https://AndrejOrsula.github.io"
 publish = false
-rust-version = "1.76"
+rust-version = "1.79"
 version = "0.1.0"
 
 [dependencies]

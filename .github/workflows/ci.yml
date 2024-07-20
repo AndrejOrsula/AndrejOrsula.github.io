@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
   release:
-    types: [published]
+    types: [ published ]
   workflow_dispatch:
 
 concurrency:
@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 env:
-  MSRV: "1.76"
+  MSRV: "1.79"
   CARGO_TERM_COLOR: always
 
 jobs:
