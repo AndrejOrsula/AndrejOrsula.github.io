@@ -30,7 +30,7 @@ egui_commonmark = { version = "0.17", default-features = false, features = [
 ## Encoding
 image = { version = "0.25", default-features = false, features = ["png"] }
 ## Parsing
-biblatex = { version = "0.9" }
+biblatex = { version = "0.10" }
 serde = { version = "1", features = ["derive"] }
 ## Utilities
 include_dir = { version = "0.7" }
