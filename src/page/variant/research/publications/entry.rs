@@ -99,89 +99,86 @@ impl BibliographyEntry {
             })
             .unwrap();
 
-        ui.with_layout(
-            egui::Layout::left_to_right(egui::Align::TOP).with_main_wrap(true),
-            |ui| {
-                ui.spacing_mut().item_spacing.x = 0.0;
-                match authors.len() {
-                    1 => {
-                        ui.label(egui::RichText::new(crate::AUTHOR_NAME_SHORT).strong());
+        ui.with_layout(egui::Layout::left_to_right(egui::Align::TOP), |ui| {
+            ui.spacing_mut().item_spacing.x = 0.0;
+            match authors.len() {
+                1 => {
+                    ui.label(egui::RichText::new(crate::AUTHOR_NAME_SHORT).strong());
+                }
+                _list_all
+                    if ui.ctx().available_rect().width() - self.cfg.thumbnail_size
+                        > authors.len() as f32 * self.cfg.min_spacing_per_author =>
+                {
+                    // Names before the highlighted author
+                    if highlighted_name_index > 0 {
+                        ui.label(egui::RichText::new(format!(
+                            "{}, ",
+                            authors
+                                .iter()
+                                .take(highlighted_name_index)
+                                .map(|author| format!(
+                                    "{} {}",
+                                    author.given_name.chars().next().unwrap(),
+                                    author.name
+                                ))
+                                .join(", "),
+                        )));
                     }
-                    _list_all
-                        if ui.ctx().available_rect().width() - self.cfg.thumbnail_size
-                            > authors.len() as f32 * self.cfg.min_spacing_per_author =>
-                    {
-                        // Names before the highlighted author
-                        if highlighted_name_index > 0 {
-                            ui.label(egui::RichText::new(format!(
-                                "{}, ",
-                                authors
-                                    .iter()
-                                    .take(highlighted_name_index)
-                                    .map(|author| format!(
-                                        "{} {}",
-                                        author.given_name.chars().next().unwrap(),
-                                        author.name
-                                    ))
-                                    .join(", "),
-                            )));
-                        }
 
-                        // Highlighted author
-                        ui.label(egui::RichText::new(crate::AUTHOR_NAME_SHORT).strong());
+                    // Highlighted author
+                    ui.label(egui::RichText::new(crate::AUTHOR_NAME_SHORT).strong());
 
-                        // Names after the highlighted author
-                        if authors.len() > highlighted_name_index + 1 {
-                            ui.label(egui::RichText::new(format!(
-                                ", {}",
-                                authors
-                                    .iter()
-                                    .skip(highlighted_name_index + 1)
-                                    .map(|author| format!(
-                                        "{} {}",
-                                        author.given_name.chars().next().unwrap(),
-                                        author.name
-                                    ))
-                                    .join(", "),
-                            )));
-                        }
-                    }
-                    _et_al => {
-                        let first_author = if highlighted_name_index == 0 {
-                            ui.label(
-                                egui::RichText::new(format!("{} et al.", crate::AUTHOR_NAME_SHORT))
-                                    .strong(),
-                            )
-                        } else {
-                            ui.label(format!(
-                                "{} {} et al.",
-                                authors[0].given_name.chars().next().unwrap(),
-                                authors[0].name
-                            ))
-                        };
-
-                        // List the remaining authors on hover
-                        first_author.on_hover_ui(|ui| {
-                            ui.with_layout(egui::Layout::top_down(egui::Align::LEFT), |ui| {
-                                authors.iter().skip(1).enumerate().for_each(|(i, author)| {
-                                    if highlighted_name_index == i + 1 {
-                                        ui.label(
-                                            egui::RichText::new(crate::AUTHOR_NAME_SHORT).strong(),
-                                        );
-                                    } else {
-                                        ui.label(format!(
-                                            "{} {}",
-                                            author.given_name.chars().next().unwrap(),
-                                            author.name
-                                        ));
-                                    }
-                                });
-                            });
-                        });
+                    // Names after the highlighted author
+                    if authors.len() > highlighted_name_index + 1 {
+                        ui.label(egui::RichText::new(format!(
+                            ", {}",
+                            authors
+                                .iter()
+                                .skip(highlighted_name_index + 1)
+                                .map(|author| format!(
+                                    "{} {}",
+                                    author.given_name.chars().next().unwrap(),
+                                    author.name
+                                ))
+                                .join(", "),
+                        )));
                     }
                 }
-            },
-        );
+                _et_al => {
+                    let first_author = if highlighted_name_index == 0 {
+                        ui.label(
+                            egui::RichText::new(format!("{} et al.", crate::AUTHOR_NAME_SHORT))
+                                .strong(),
+                        )
+                    } else {
+                        ui.label(format!(
+                            "{} {} et al.",
+                            authors[0].given_name.chars().next().unwrap(),
+                            authors[0].name
+                        ))
+                    };
+
+                    // List the remaining authors on hover
+                    first_author.on_hover_ui(|ui| {
+                        ui.with_layout(egui::Layout::top_down(egui::Align::LEFT), |ui| {
+                            authors.iter().skip(1).enumerate().for_each(|(i, author)| {
+                                if highlighted_name_index == i + 1 {
+                                    ui.label(
+                                        egui::RichText::new(crate::AUTHOR_NAME_SHORT).strong(),
+                                    );
+                                } else {
+                                    ui.label(format!(
+                                        "{} {}",
+                                        author.given_name.chars().next().unwrap(),
+                                        author.name
+                                    ));
+                                }
+                            });
+                        });
+                    });
+                }
+            }
+        });
     }
 
     fn show_venue(&self, ui: &mut egui::Ui) {

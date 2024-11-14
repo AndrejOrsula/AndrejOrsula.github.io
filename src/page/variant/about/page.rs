@@ -53,10 +53,10 @@ pub struct AboutPage {
 impl Default for AboutPage {
     fn default() -> Self {
         Self {
-            cfg: Default::default(),
+            cfg: AboutPageConfig::default(),
             space_to_center_vertically: 0.0,
             is_first_render: true,
-            commonmark_cache: Default::default(),
+            commonmark_cache: egui_commonmark::CommonMarkCache::default(),
         }
     }
 }
@@ -129,7 +129,7 @@ impl AboutPage {
     }
 
     fn show_bio(&mut self, ui: &mut egui::Ui) -> egui::InnerResponse<()> {
-        egui_commonmark::commonmark_str!("bio", ui, &mut self.commonmark_cache, "content/bio.md")
+        egui_commonmark::commonmark_str!(ui, &mut self.commonmark_cache, "content/bio.md")
     }
 
     #[cfg(target_arch = "wasm32")]

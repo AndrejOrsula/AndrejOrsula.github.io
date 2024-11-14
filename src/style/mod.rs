@@ -14,10 +14,10 @@ pub fn load_fonts(ctx: &egui::Context) {
     });
 }
 
-pub fn set_theme(ctx: &egui::Context, theme: eframe::Theme) {
+pub fn set_theme(ctx: &egui::Context, theme: egui::Theme) {
     // Set the style
     ctx.set_visuals(match theme {
-        eframe::Theme::Dark => dark_visuals().clone(),
-        eframe::Theme::Light => light_visuals().clone(),
+        egui::Theme::Dark => dark_visuals().clone(),
+        egui::Theme::Light => light_visuals().clone(),
     });
 }

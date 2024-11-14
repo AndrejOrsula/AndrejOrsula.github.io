@@ -3,7 +3,7 @@ use crate::page::Page;
 #[derive(serde::Deserialize, serde::Serialize)]
 #[serde(default)]
 pub struct App {
-    theme: eframe::Theme,
+    theme: egui::Theme,
     #[serde(skip)]
     current_page: Page,
     #[serde(skip)]
@@ -13,7 +13,7 @@ pub struct App {
 impl Default for App {
     fn default() -> Self {
         Self {
-            theme: eframe::Theme::Dark,
+            theme: egui::Theme::Dark,
             current_page: Page::default(),
             pages: crate::ENABLED_PAGES
                 .into_iter()
@@ -42,18 +42,7 @@ impl App {
             eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default()
         } else {
             // Otherwise, use default state
-            let mut app = Self::default();
-
-            // Try to detect the system theme
-            #[cfg(target_arch = "wasm32")]
-            let system_theme = eframe::web::system_theme();
-            #[cfg(not(target_arch = "wasm32"))]
-            let system_theme = cc.integration_info.system_theme;
-            if let Some(theme) = system_theme {
-                app.theme = theme;
-            }
-
-            app
+            Self::default()
         };
 
         // Set the theme
@@ -85,7 +74,9 @@ impl eframe::App for App {
             }
         } else {
             // Otherwise, update the URL to match the current page
-            crate::utils::egui::open_url_on_page(ctx, self.current_page, true);
+            if self.current_page != Page::default() {
+                crate::utils::egui::open_url_on_page(ctx, self.current_page, true);
+            }
         }
 
         // Support native fullscreen toggle
@@ -229,12 +220,12 @@ impl App {
 
     pub fn dark_mode_toggle_button(&mut self, ui: &mut egui::Ui) {
         let (icon, tooltip, target_visuals) = match self.theme {
-            eframe::Theme::Dark => (
+            egui::Theme::Dark => (
                 "\u{e51c}",
                 "Switch to light mode",
                 crate::style::light_visuals(),
             ),
-            eframe::Theme::Light => (
+            egui::Theme::Light => (
                 "\u{e518}",
                 "Switch to dark mode",
                 crate::style::dark_visuals(),
@@ -248,8 +239,8 @@ impl App {
         {
             ui.ctx().set_visuals(target_visuals.to_owned());
             self.theme = match self.theme {
-                eframe::Theme::Dark => eframe::Theme::Light,
-                eframe::Theme::Light => eframe::Theme::Dark,
+                egui::Theme::Dark => egui::Theme::Light,
+                egui::Theme::Light => egui::Theme::Dark,
             };
         }
     }

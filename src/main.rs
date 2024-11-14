@@ -1,26 +1,33 @@
 #[cfg(target_arch = "wasm32")]
 fn main() {
+    use eframe::wasm_bindgen::JsCast;
+
     #[cfg(debug_assertions)]
     eframe::WebLogger::init(log::LevelFilter::max()).ok();
 
     wasm_bindgen_futures::spawn_local(async {
-        let result = eframe::WebRunner::new()
+        let document = web_sys::window()
+            .expect("There should be a window")
+            .document()
+            .expect("There should be a document");
+
+        let canvas = document
+            .get_element_by_id("egui_canvas")
+            .expect("Failed to find the canvas element")
+            .dyn_into::<web_sys::HtmlCanvasElement>()
+            .expect("Failed to convert the element to a canvas");
+
+        let start_result = eframe::WebRunner::new()
             .start(
-                "egui_canvas",
-                eframe::WebOptions {
-                    follow_system_theme: false,
-                    ..Default::default()
-                },
+                canvas,
+                eframe::WebOptions::default(),
                 Box::new(|cc| Ok(Box::new(portfolio_andrejorsula::App::new(cc)))),
             )
             .await;
 
         // Remove the loading text and spinner:
-        if let Some(loading_text) = web_sys::window()
-            .and_then(|w| w.document())
-            .and_then(|d| d.get_element_by_id("tmp_loading_screen"))
-        {
-            match result {
+        if let Some(loading_text) = document.get_element_by_id("tmp_loading_screen") {
+            match start_result {
                 Ok(()) => {
                     loading_text.remove();
                 }

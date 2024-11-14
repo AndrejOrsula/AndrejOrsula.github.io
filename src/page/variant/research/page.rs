@@ -33,9 +33,9 @@ impl Default for ResearchPage {
         static THUMBNAILS: Dir =
             include_dir!("$CARGO_MANIFEST_DIR/content/publications/thumbnails");
         Self {
-            cfg: Default::default(),
+            cfg: ResearchPageConfig::default(),
             bibliography: Bibliography::parse(BIB, Some(&THUMBNAILS)),
-            commonmark_cache: Default::default(),
+            commonmark_cache: egui_commonmark::CommonMarkCache::default(),
         }
     }
 }
@@ -44,12 +44,7 @@ impl eframe::App for ResearchPage {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         crate::utils::egui::ScrollableFramedCentralPanel::default().show(ctx, |ui| {
             crate::utils::egui::centered_strong_heading(ui, PAGE.title());
-            egui_commonmark::commonmark_str!(
-                "research",
-                ui,
-                &mut self.commonmark_cache,
-                "content/research.md"
-            );
+            egui_commonmark::commonmark_str!(ui, &mut self.commonmark_cache, "content/research.md");
 
             self.show_publications(ui);
         });

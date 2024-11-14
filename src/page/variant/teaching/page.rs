@@ -43,38 +43,34 @@ impl TeachingPage {
             "2022 – Present",
             0.8 * self.cfg.course_heading_font_size,
         );
-        ui.with_layout(
-            egui::Layout::left_to_right(egui::Align::TOP).with_main_wrap(true),
-            |ui| {
-                crate::utils::egui::strong_heading_sized(
-                    ui,
-                    "Robotic Manipulation in Space",
-                    self.cfg.course_heading_font_size,
-                );
+        ui.with_layout(egui::Layout::left_to_right(egui::Align::TOP), |ui| {
+            crate::utils::egui::strong_heading_sized(
+                ui,
+                "Robotic Manipulation in Space",
+                self.cfg.course_heading_font_size,
+            );
 
-                // Separator before the copy button
-                ui.add(
-                    egui::Label::new(
-                        egui::RichText::new("|")
-                            .size(self.cfg.course_heading_font_size)
-                            .weak(),
-                    )
-                    .selectable(false),
-                );
+            // Separator before the copy button
+            ui.add(
+                egui::Label::new(
+                    egui::RichText::new("|")
+                        .size(self.cfg.course_heading_font_size)
+                        .weak(),
+                )
+                .selectable(false),
+            );
 
-                ui.style_mut().override_text_style = Some(egui::TextStyle::Name("social".into()));
-                let button = ui
-                    .add(egui::Button::new(
-                        egui::RichText::new("\u{f09b}")
-                            .size(1.2 * self.cfg.course_heading_font_size),
-                    ))
-                    .on_hover_text("Repository");
-                crate::utils::egui::clickable_url(
-                    button,
-                    "https://github.com/snt-spacer/phantomx_pincher",
-                );
-            },
-        );
+            ui.style_mut().override_text_style = Some(egui::TextStyle::Name("social".into()));
+            let button = ui
+                .add(egui::Button::new(
+                    egui::RichText::new("\u{f09b}").size(1.2 * self.cfg.course_heading_font_size),
+                ))
+                .on_hover_text("Repository");
+            crate::utils::egui::clickable_url(
+                button,
+                "https://github.com/snt-spacer/phantomx_pincher",
+            );
+        });
 
         ui.add_space(4.0 * ui.spacing().item_spacing.y);
 
@@ -91,7 +87,6 @@ impl TeachingPage {
         );
 
         egui_commonmark::commonmark_str!(
-            "teaching",
             ui,
             &mut self.commonmark_cache,
             "content/teaching/rmins.md"
