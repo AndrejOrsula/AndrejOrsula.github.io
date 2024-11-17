@@ -46,6 +46,8 @@ impl eframe::App for ResearchPage {
             crate::utils::egui::centered_strong_heading(ui, PAGE.title());
             egui_commonmark::commonmark_str!(ui, &mut self.commonmark_cache, "content/research.md");
 
+            ui.add_space(16.0);
+
             self.show_publications(ui);
         });
     }
