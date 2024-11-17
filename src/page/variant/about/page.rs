@@ -22,16 +22,13 @@ pub struct AboutPageConfig {
     #[builder(default = 424.0)]
     pub centering_initial_content_height_estimate: f32,
     /// Height of the navigation buttons
-    #[cfg(target_arch = "wasm32")]
     #[builder(default = 80.0)]
     pub navigation_button_height: f32,
     /// Maximum width of the navigation buttons
     /// Lower values will result in more columns
-    #[cfg(target_arch = "wasm32")]
     #[builder(default = 256.0)]
     pub max_button_width: f32,
     /// Spacing between the navigation buttons
-    #[cfg(target_arch = "wasm32")]
     #[builder(default = 3.0)]
     pub button_spacing: f32,
 }
@@ -43,22 +40,10 @@ impl Default for AboutPageConfig {
 }
 
 #[must_use = "You should call .update()"]
+#[derive(Default)]
 pub struct AboutPage {
     pub cfg: AboutPageConfig,
-    space_to_center_vertically: f32,
-    is_first_render: bool,
     commonmark_cache: egui_commonmark::CommonMarkCache,
-}
-
-impl Default for AboutPage {
-    fn default() -> Self {
-        Self {
-            cfg: AboutPageConfig::default(),
-            space_to_center_vertically: 0.0,
-            is_first_render: true,
-            commonmark_cache: egui_commonmark::CommonMarkCache::default(),
-        }
-    }
 }
 
 impl eframe::App for AboutPage {
@@ -66,19 +51,13 @@ impl eframe::App for AboutPage {
         crate::utils::egui::ScrollableFramedCentralPanel::builder()
             .max_content_width(self.cfg.max_content_width)
             .build()
-            .show(ctx, |ui| {
-                self.maybe_init_centering_space(ui);
-                let used_page_rect = self.show(ui);
-                self.update_centering_space(ui, used_page_rect.height());
-            });
+            .show(ctx, |ui| self.show(ui));
     }
 }
 
 impl AboutPage {
     fn show(&mut self, ui: &mut egui::Ui) -> egui::Rect {
         ui.with_layout(egui::Layout::top_down(egui::Align::Center), |ui| {
-            ui.add_space(self.space_to_center_vertically);
-
             crate::utils::egui::strong_heading_sized(
                 ui,
                 crate::AUTHOR_NAME_FULL,
@@ -108,7 +87,6 @@ impl AboutPage {
             }
 
             // Extra navigation buttons for the web version
-            #[cfg(target_arch = "wasm32")]
             self.show_extra_navigation_buttons(ui);
 
             // TODO: Add News timeline
@@ -132,7 +110,6 @@ impl AboutPage {
         egui_commonmark::commonmark_str!(ui, &mut self.commonmark_cache, "content/bio.md")
     }
 
-    #[cfg(target_arch = "wasm32")]
     fn show_extra_navigation_buttons(&mut self, ui: &mut egui::Ui) {
         if crate::ENABLED_PAGES.len() > 1 {
             ui.add_space(4.0 * ui.spacing().item_spacing.y);
@@ -188,24 +165,6 @@ impl AboutPage {
                             }
                         });
                 });
-        }
-    }
-
-    fn update_centering_space(&mut self, ui: &mut egui::Ui, used_page_height: f32) {
-        let content_height = used_page_height - self.space_to_center_vertically;
-        let empty_height = ui.ctx().available_rect().height() - content_height;
-        self.space_to_center_vertically =
-            (0.5 * empty_height - self.cfg.centering_min_bottom - ui.spacing().item_spacing.y)
-                .floor()
-                .max(0.0);
-    }
-
-    fn maybe_init_centering_space(&mut self, ui: &mut egui::Ui) {
-        if self.is_first_render {
-            self.is_first_render = false;
-            if ui.ctx().screen_rect().width() >= self.cfg.max_content_width {
-                self.update_centering_space(ui, self.cfg.centering_initial_content_height_estimate);
-            }
         }
     }
 }

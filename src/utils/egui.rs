@@ -45,7 +45,6 @@ impl ScrollableFramedCentralPanel {
     }
 }
 
-#[cfg(target_arch = "wasm32")]
 pub fn open_url_on_page(ctx: &egui::Context, page: crate::page::Page, same_tab: bool) {
     let target_url = if let Some(url) = page.redirect_page() {
         url.to_owned()
@@ -64,11 +63,8 @@ pub fn clickable_url(response: egui::Response, url: impl ToString) -> egui::Resp
 
     if response.clicked() {
         response.ctx.open_url(egui::OpenUrl::same_tab(url));
-    } else {
-        #[cfg(target_arch = "wasm32")]
-        if response.middle_clicked() {
-            response.ctx.open_url(egui::OpenUrl::new_tab(url));
-        }
+    } else if response.middle_clicked() {
+        response.ctx.open_url(egui::OpenUrl::new_tab(url));
     }
     response
 }

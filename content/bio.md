@@ -1,6 +1,1 @@
-Hey, I am Andrej! My goal is to advance the development of embodied agents capable of effectively learning and
-interacting with the dynamic world around us. I am currently a PhD student at
-the [University of Luxembourg](https://www.uni.lu/snt-en) under the supervision
-of [Prof. Miguel Olivares Mendez](https://www.spacer.lu). My foundational knowledge in robotics was developed during my
-education at [Aalborg University](https://en.aau.dk/education/master/robotics). Concurrently, I improved my software
-development skills through my work at [Aivero](https://aivero.com).
+Hey, I am Andrej! My goal is to advance the development of embodied agents capable of effectively learning and interacting with the dynamic world around us. I am currently a PhD student at the [University of Luxembourg](https://www.uni.lu/snt-en) under the supervision of [Prof. Miguel Olivares Mendez](https://www.spacer.lu). My foundational knowledge in robotics was developed during my education at [Aalborg University](https://en.aau.dk/education/master/robotics). Concurrently, I improved my software development skills through my work at [Aivero](https://aivero.com).

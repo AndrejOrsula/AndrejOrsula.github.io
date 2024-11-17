@@ -33,7 +33,7 @@ repos:
     rev: v2.3.0
     hooks:
       - id: codespell
-        args: [ "--ignore-words-list", "crate,pincher" ]
+        args: ["--ignore-words-list", "crate"]
         exclude: Cargo.lock
 
   - repo: https://github.com/executablebooks/mdformat
@@ -47,13 +47,22 @@ repos:
       - id: cargo-fmt
       - id: cargo-update
       - id: cargo-clippy
-        args: [ "--workspace", "--all-targets", "--", "--deny=warnings" ]
+        args:
+          [
+            "--workspace",
+            "--target",
+            "wasm32-unknown-unknown",
+            "--all-targets",
+            "--",
+            "--deny=warnings",
+          ]
       - id: cargo-check
-        args: [ "--workspace", "--all-targets" ]
+        args:
+          ["--workspace", "--target", "wasm32-unknown-unknown", "--all-targets"]
       - id: cargo-test
-        args: [ "--workspace", "--all-targets" ]
+        args: ["--workspace", "--all-targets"]
       - id: cargo-test-doc
-        args: [ "--workspace" ]
+        args: ["--workspace"]
       - id: cargo-doc
-        args: [ "--workspace", "--no-deps", "--document-private-items" ]
+        args: ["--workspace", "--no-deps", "--document-private-items"]
       - id: cargo-deny-check

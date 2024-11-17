@@ -1,11 +1,11 @@
 #![allow(dead_code)]
 
-const PAGE: crate::page::Page = crate::page::Page::Software;
+const PAGE: crate::page::Page = crate::page::Page::Projects;
 
 #[derive(Debug, Clone, Copy, PartialEq, typed_builder::TypedBuilder)]
-pub struct SoftwarePageConfig {}
+pub struct ProjectsPageConfig {}
 
-impl Default for SoftwarePageConfig {
+impl Default for ProjectsPageConfig {
     fn default() -> Self {
         Self::builder().build()
     }
@@ -13,11 +13,11 @@ impl Default for SoftwarePageConfig {
 
 #[must_use = "You should call .update()"]
 #[derive(Default)]
-pub struct SoftwarePage {
-    pub cfg: SoftwarePageConfig,
+pub struct ProjectsPage {
+    pub cfg: ProjectsPageConfig,
 }
 
-impl eframe::App for SoftwarePage {
+impl eframe::App for ProjectsPage {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         crate::utils::egui::ScrollableFramedCentralPanel::default().show(ctx, |ui| {
             crate::utils::egui::centered_strong_heading(ui, PAGE.title());
@@ -26,4 +26,4 @@ impl eframe::App for SoftwarePage {
     }
 }
 
-impl SoftwarePage {}
+impl ProjectsPage {}

@@ -33,7 +33,6 @@ impl App {
         crate::style::load_fonts(&cc.egui_ctx);
 
         // Enable screen web reader support
-        #[cfg(target_arch = "wasm32")]
         cc.egui_ctx.options_mut(|o| o.screen_reader = true);
 
         // Construct the app state
@@ -77,13 +76,6 @@ impl eframe::App for App {
             if self.current_page != Page::default() {
                 crate::utils::egui::open_url_on_page(ctx, self.current_page, true);
             }
-        }
-
-        // Support native fullscreen toggle
-        #[cfg(not(target_arch = "wasm32"))]
-        if ctx.input_mut(|i| i.consume_key(egui::Modifiers::NONE, egui::Key::F11)) {
-            let fullscreen = ctx.input(|i| i.viewport().fullscreen.unwrap_or(false));
-            ctx.send_viewport_cmd(egui::ViewportCommand::Fullscreen(!fullscreen));
         }
 
         // Navigation panel that allows switching between page
@@ -196,20 +188,12 @@ impl App {
                 // If the button is clicked, change the current page
                 if button.clicked() {
                     // Change URL to the new page in the same tab
-                    #[cfg(target_arch = "wasm32")]
                     crate::utils::egui::open_url_on_page(ui.ctx(), page, true);
-
-                    // Manually update the current page for non-web platforms
-                    #[cfg(not(target_arch = "wasm32"))]
-                    {
-                        self.current_page = page;
-                    }
 
                     // Close menu if it is open
                     ui.close_menu();
                 } else {
                     // Open URL in a new page if the middle mouse button is clicked
-                    #[cfg(target_arch = "wasm32")]
                     if button.middle_clicked() {
                         crate::utils::egui::open_url_on_page(ui.ctx(), page, false);
                     }

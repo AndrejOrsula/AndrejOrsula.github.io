@@ -1,24 +1,14 @@
 use crate::page::Page;
 use crate::social::Social;
 
-#[cfg(target_arch = "wasm32")]
 pub const ENABLED_PAGES: [Page; 4] = [
     Page::About,
     Page::Research,
+    // Page::Projects,
     Page::Teaching,
-    // Page::Software,
+    // Page::Demos,
+    // Page::Blog,
     Page::Cv,
-    // Page::Blog,
-    // Page::Demos,
-];
-#[cfg(not(target_arch = "wasm32"))]
-pub const ENABLED_PAGES: [Page; 3] = [
-    Page::About,
-    Page::Research,
-    Page::Teaching,
-    // Page::Software,
-    // Page::Blog,
-    // Page::Demos,
 ];
 
 pub const SEPARATE_MENU_AT: [Page; 1] = [Page::Cv];

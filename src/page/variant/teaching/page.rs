@@ -31,48 +31,49 @@ impl eframe::App for TeachingPage {
             .show(ctx, |ui| {
                 crate::utils::egui::centered_strong_heading(ui, PAGE.title());
                 ui.add_space(6.0 * ui.spacing().item_spacing.y);
-                self.show_lu(ui);
+                self.show(ui);
             });
     }
 }
 
 impl TeachingPage {
-    fn show_lu(&mut self, ui: &mut egui::Ui) {
-        crate::utils::egui::heading_sized(
+    fn show(&mut self, ui: &mut egui::Ui) {
+        crate::utils::egui::strong_heading_sized(
             ui,
-            "2022 – Present",
-            0.8 * self.cfg.course_heading_font_size,
+            "Robotic Manipulation in Space",
+            self.cfg.course_heading_font_size,
         );
-        ui.with_layout(egui::Layout::left_to_right(egui::Align::TOP), |ui| {
-            crate::utils::egui::strong_heading_sized(
-                ui,
-                "Robotic Manipulation in Space",
-                self.cfg.course_heading_font_size,
-            );
 
-            // Separator before the copy button
-            ui.add(
-                egui::Label::new(
-                    egui::RichText::new("|")
-                        .size(self.cfg.course_heading_font_size)
-                        .weak(),
-                )
-                .selectable(false),
-            );
-
+        ui.with_layout(egui::Layout::right_to_left(egui::Align::TOP), |ui| {
             ui.style_mut().override_text_style = Some(egui::TextStyle::Name("social".into()));
             let button = ui
                 .add(egui::Button::new(
-                    egui::RichText::new("\u{f09b}").size(1.2 * self.cfg.course_heading_font_size),
+                    egui::RichText::new("\u{f09b}").size(0.8 * self.cfg.course_heading_font_size),
                 ))
                 .on_hover_text("Repository");
             crate::utils::egui::clickable_url(
                 button,
                 "https://github.com/snt-spacer/phantomx_pincher",
             );
+
+            ui.with_layout(egui::Layout::left_to_right(egui::Align::TOP), |ui| {
+                crate::utils::egui::heading_sized(
+                    ui,
+                    "2022 – Present",
+                    0.8 * self.cfg.course_heading_font_size,
+                );
+            });
         });
 
-        ui.add_space(4.0 * ui.spacing().item_spacing.y);
+        ui.add_space(1.0 * ui.spacing().item_spacing.y);
+
+        egui_commonmark::commonmark_str!(
+            ui,
+            &mut self.commonmark_cache,
+            "content/teaching/rmins.md"
+        );
+
+        ui.add_space(2.0 * ui.spacing().item_spacing.y);
 
         let image_size = self
             .cfg
@@ -84,12 +85,6 @@ impl TeachingPage {
                 "teaching/images/rmins.png"
             ))
             .fit_to_exact_size(egui::vec2(image_size, image_size)),
-        );
-
-        egui_commonmark::commonmark_str!(
-            ui,
-            &mut self.commonmark_cache,
-            "content/teaching/rmins.md"
         );
     }
 }
