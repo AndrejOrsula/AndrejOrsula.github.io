@@ -218,7 +218,7 @@ impl BibliographyEntry {
                             .add(egui::Button::new(
                                 egui::RichText::new($symbol).size(self.cfg.button_size),
                             ))
-                            .on_hover_text($hover_text);
+                            .on_hover_text_at_pointer($hover_text);
                         crate::utils::egui::clickable_url(button, link);
                     }
                 };
@@ -226,8 +226,8 @@ impl BibliographyEntry {
             maybe_show_simple_button!(self.homepage(), "\u{e80b}", "Homepage");
             maybe_show_simple_button!(self.article_pdf(), "\u{e415}", "Article (PDF)");
             maybe_show_simple_button!(self.article_html(), "\u{eb7e}", "Article (HTML)");
-            maybe_show_simple_button!(self.presentation(), "\u{eaf0}", "Full presentation");
             maybe_show_simple_button!(self.video(), "\u{f06a}", "Video summary");
+            maybe_show_simple_button!(self.presentation(), "\u{eaf0}", "Full presentation");
             maybe_show_simple_button!(self.repository(), "\u{e86f}", "Source code");
 
             // Separator before the copy button
@@ -250,7 +250,7 @@ impl BibliographyEntry {
                 egui::RichText::new(if is_copied { "\u{e5ca}" } else { "\u{e609}" })
                     .size(self.cfg.button_size),
             ))
-            .on_hover_text(if is_copied {
+            .on_hover_text_at_pointer(if is_copied {
                 "Copied!"
             } else {
                 "Copy BibTeX entry"
@@ -285,12 +285,12 @@ impl BibliographyEntry {
         if let Ok(homepage) = self.homepage() {
             response = response
                 .on_hover_cursor(egui::CursorIcon::PointingHand)
-                .on_hover_text("Homepage");
+                .on_hover_text_at_pointer("Homepage");
             crate::utils::egui::clickable_url(response, homepage)
         } else if let Ok(publication_url) = self.publication_url() {
             response = response
                 .on_hover_cursor(egui::CursorIcon::PointingHand)
-                .on_hover_text("Publication permalink");
+                .on_hover_text_at_pointer("Publication permalink");
             crate::utils::egui::clickable_url(response, publication_url)
         } else {
             response

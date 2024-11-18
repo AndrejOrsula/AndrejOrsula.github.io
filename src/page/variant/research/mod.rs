@@ -1,5 +1,5 @@
 pub use page::ResearchPage;
-use publications::{Bibliography, BibliographyConfig};
+use publications::Bibliography;
 
 mod page;
 mod publications;

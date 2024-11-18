@@ -50,7 +50,7 @@ impl TeachingPage {
                 .add(egui::Button::new(
                     egui::RichText::new("\u{f09b}").size(0.8 * self.cfg.course_heading_font_size),
                 ))
-                .on_hover_text("Repository");
+                .on_hover_text_at_pointer("Repository");
             crate::utils::egui::clickable_url(
                 button,
                 "https://github.com/snt-spacer/phantomx_pincher",

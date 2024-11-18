@@ -1,4 +1,5 @@
-#[allow(unused)]
+use super::Updates;
+
 const PAGE: crate::page::Page = crate::page::Page::About;
 
 #[derive(Debug, Clone, Copy, PartialEq, typed_builder::TypedBuilder)]
@@ -40,10 +41,21 @@ impl Default for AboutPageConfig {
 }
 
 #[must_use = "You should call .update()"]
-#[derive(Default)]
 pub struct AboutPage {
     pub cfg: AboutPageConfig,
+    pub updates: Updates,
     commonmark_cache: egui_commonmark::CommonMarkCache,
+}
+
+impl Default for AboutPage {
+    fn default() -> Self {
+        static UPDATES: &str = crate::macros::include_content_str!("updates.yaml");
+        Self {
+            cfg: AboutPageConfig::default(),
+            updates: Updates::parse(UPDATES),
+            commonmark_cache: egui_commonmark::CommonMarkCache::default(),
+        }
+    }
 }
 
 impl eframe::App for AboutPage {
@@ -56,7 +68,7 @@ impl eframe::App for AboutPage {
 }
 
 impl AboutPage {
-    fn show(&mut self, ui: &mut egui::Ui) -> egui::Rect {
+    fn show(&mut self, ui: &mut egui::Ui) {
         ui.with_layout(egui::Layout::top_down(egui::Align::Center), |ui| {
             crate::utils::egui::strong_heading_sized(
                 ui,
@@ -89,10 +101,10 @@ impl AboutPage {
             // Extra navigation buttons for the web version
             self.show_extra_navigation_buttons(ui);
 
-            // TODO: Add News timeline
-        })
-        .response
-        .rect
+            ui.add_space(6.0 * ui.spacing().item_spacing.y);
+
+            self.updates.show(ui);
+        });
     }
 
     fn show_profile_picture(&mut self, ui: &mut egui::Ui, rounding_factor: f32) -> egui::Response {
@@ -153,7 +165,7 @@ impl AboutPage {
                                             self.cfg.navigation_button_height,
                                         )),
                                 )
-                                .on_hover_text(page.description());
+                                .on_hover_text_at_pointer(page.description());
                             if button.clicked() {
                                 crate::utils::egui::open_url_on_page(ui.ctx(), page, true);
                             } else if button.middle_clicked() {

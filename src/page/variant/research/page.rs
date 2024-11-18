@@ -1,6 +1,6 @@
 use include_dir::{include_dir, Dir};
 
-use super::{Bibliography, BibliographyConfig};
+use super::Bibliography;
 
 const PAGE: crate::page::Page = crate::page::Page::Research;
 
@@ -9,9 +9,6 @@ pub struct ResearchPageConfig {
     /// Font size for the publication heading
     #[builder(default = 36.0)]
     pub publication_font_size: f32,
-    /// Configuration for the bibliography
-    #[builder(default)]
-    pub bibliography_cfg: BibliographyConfig,
 }
 
 impl Default for ResearchPageConfig {

@@ -1,4 +1,4 @@
-pub use bibliography::{Bibliography, BibliographyConfig};
+pub use bibliography::Bibliography;
 pub use entry::{BibliographyEntry, BibliographyEntryConfig};
 
 mod bibliography;

@@ -1,0 +1,83 @@
+- date: 2024-11-06
+  title: "CoRL 2024"
+  highlights: "Presentation"
+  description: 'Presented my progress "Towards Benchmarking Robotic Manipulation in Space" at the MRM-D Workshop during CoRL 2024 in Munich, Germany.'
+  url: "https://openreview.net/forum?id=nIAlBA0oKA"
+
+- date: 2024-10-21
+  title: "ROSCon 2024"
+  highlights: "Networking"
+  description: "Attended ROSCon 2024 to explore recent advancements and discuss potential collaborations with the robotics community in Odense, Denmark."
+  url: "https://roscon.ros.org/2024"
+
+- date: 2024-09-23
+  title: "ICRA@40"
+  highlights: "Live Demo"
+  description: 'Presented a live demo on "Interactive Robotic Manipulation in Simulated Space Environments" at ICRA@40 in Rotterdam, the Netherlands.'
+  url: "https://icra40.ieee.org/icra-2024/program/live-demos"
+
+- date: 2024-06-24
+  title: "iSpaRo 2024"
+  highlights: "Presentation"
+  description: 'Presented my work "Leveraging Procedural Generation for Learning Autonomous Peg-in-Hole Assembly in Space" at iSpaRo 2024 in Luxembourg.'
+  url: "https://ieeexplore.ieee.org/document/10688111"
+
+- date: 2024-03-26
+  title: "BLUX 2024"
+  highlights: "Presentation"
+  description: 'Presented my work "Learning Robotic Peg-in-Hole Assembly for In-Space Operations with Model-Based Deep Reinforcement Learning" at BLUX 2024 in Blankenberge, Belgium.'
+  url: "https://beneluxmeeting.nl/2024/uploads/bmsc/boa2024.pdf"
+
+- date: 2023-12-15
+  title: "NeurIPS 2023"
+  highlights: "Competition"
+  description: 'Achieved 2nd place in the "Robot Air Hockey Challenge" and presented my methodology for "Learning to Play Air Hockey with Model-Based Deep Reinforcement Learning" at NeurIPS 2023.'
+  url: "https://air-hockey-challenge.robot-learning.net/leaderboard"
+
+- date: 2023-05-29
+  title: "ICRA 2023"
+  highlights: "Contribution"
+  description: 'Contributed to the tutorial "All about ROS 2 and the new Gazebo" and reached quarterfinals in the "Simulated Humanoid Robot Wrestling Competition" at ICRA 2023 in London, UK.'
+  url: "https://github.com/osrf/icra2023_ros2_gz_tutorial"
+
+- date: 2022-10-23
+  title: "IROS 2022"
+  highlights: "Presentation"
+  description: 'Presented my first paper "Learning to Grasp on the Moon from 3D Octree Observations with Deep Reinforcement Learning" at IROS 2022 in Kyoto, Japan.'
+  url: "https://youtube.com/watch?v=kPN9EYLKwAE"
+
+- date: 2022-10-21
+  title: "ROSCon 2022"
+  highlights: "Presentation"
+  description: 'Presented my work on "Using Blender to Generate Datasets of Procedural SDF Models" at ROSCon 2022 in Kyoto, Japan.'
+  url: "https://roscon.ros.org/2022"
+
+- date: 2022-09-15
+  title: "Teaching"
+  highlights: "Experience"
+  description: 'Started teaching the course "Robotic Manipulation in Space" of the Interdisciplinary Space Master at the University of Luxembourg.'
+  url: "https://www.uni.lu/fstm-en/study-programs/master-in-space-technologies-and-business"
+
+- date: 2021-10-01
+  title: "Start of PhD"
+  highlights: "New Journey"
+  description: "Started my PhD in Space Robotics at the University of Luxembourg, focusing on the application of Robot Learning in Space."
+  url: "https://www.uni.lu/snt-en/research-groups/SpaceR"
+
+- date: 2021-06-01
+  title: "MSc"
+  highlights: "Milestone"
+  description: 'Completed my MSc in Robotics at Aalborg University with a thesis on "Deep Reinforcement Learning for Robotic Grasping from Octrees".'
+  url: "https://github.com/AndrejOrsula/drl_grasping"
+
+- date: 2019-06-03
+  title: "Aivero"
+  highlights: "Experience"
+  description: "Started my journey with Rust as a software engineer at Aivero."
+  url: "https://aivero.com"
+
+- date: 2019-06-01
+  title: "BSc"
+  highlights: "Milestone"
+  description: 'Completed my BSc in Robotics at Aalborg University with a thesis on "Eye Controlled Semi-Autonomous Assistive Manipulator".'
+  url: "https://github.com/AndrejOrsula/ecard"
