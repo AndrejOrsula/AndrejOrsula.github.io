@@ -1,3 +1,9 @@
+- date: 2024-11-27
+  title: "NASA Sim"
+  highlights: "Competition"
+  description: 'Achieved 2nd place in the "NASA Space ROS Sim Summer Sprint Challenge".'
+  url: "https://www.freelancer.com/contest/NASA-Space-ROS-Sim-Summer-Sprint-Challenge-2417552/updates"
+
 - date: 2024-11-06
   title: "CoRL 2024"
   highlights: "Presentation"
@@ -27,6 +33,12 @@
   highlights: "Presentation"
   description: 'Presented my work "Learning Robotic Peg-in-Hole Assembly for In-Space Operations with Model-Based Deep Reinforcement Learning" at BLUX 2024 in Blankenberge, Belgium.'
   url: "https://beneluxmeeting.nl/2024/uploads/bmsc/boa2024.pdf"
+
+- date: 2023-12-25
+  title: "AoC 2023"
+  highlights: "Experience"
+  description: "Participated in my first Advent of Code and solved all puzzles with Rust."
+  url: "https://github.com/AndrejOrsula/aoc"
 
 - date: 2023-12-15
   title: "NeurIPS 2023"
