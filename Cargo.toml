@@ -35,7 +35,7 @@ serde = { version = "1", features = ["derive"] }
 serde_yaml = { version = "0.9" }
 ## Utilities
 include_dir = { version = "0.7" }
-itertools = { version = "0.13" }
+itertools = { version = "0.14" }
 paste = { version = "1.0" }
 rustc-hash = { version = "2.1" }
 strum = { version = "0.26", features = ["derive"] }
