@@ -38,7 +38,7 @@ include_dir = { version = "0.7" }
 itertools = { version = "0.14" }
 paste = { version = "1.0" }
 rustc-hash = { version = "2.1" }
-strum = { version = "0.26", features = ["derive"] }
+strum = { version = "0.27", features = ["derive"] }
 typed-builder = { version = "0.20" }
 chrono = { version = "0.4", features = ["serde"] }
 
