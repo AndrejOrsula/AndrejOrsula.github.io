@@ -1,3 +1,21 @@
+- date: 2025-06-03
+  title: "IEEE CertifAIEd"
+  highlights: "Certification"
+  description: "I achieved the IEEE CertifAIEd™ Authorized Lead Assessor certification."
+  url: "https://credential.standards.ieee.org/f381d676-023f-4847-b62f-b7224ffa22ab"
+
+- date: 2025-05-17
+  title: "ICRA 2025"
+  highlights: "Presentation"
+  description: 'Presented my work on "Learning Compliant Manipulation in Space" and a live demo of the "Space Robotics Bench" at ICRA 2025 in Atlanta, USA.'
+  url: "https://youtu.be/e9VoTEUscqc"
+
+- date: 2025-04-11
+  title: "Mistral AI Robotics"
+  highlights: "Hackathon"
+  description: "Hacked a vision-based manipulation system for stacking unstable balls on top of each other at the Mistral AI Robotics Hackathon in Paris, France."
+  url: "https://lu.ma/roboticshack?tk=wtodmF"
+
 - date: 2024-12-25
   title: "AoC 2024"
   highlights: "Experience"
@@ -8,7 +26,7 @@
   title: "NASA Sim"
   highlights: "Competition"
   description: 'Achieved 2nd place in the "NASA Space ROS Sim Summer Sprint Challenge".'
-  url: "https://www.freelancer.com/contest/NASA-Space-ROS-Sim-Summer-Sprint-Challenge-2417552/updates"
+  url: "https://s3.amazonaws.com/press.freelancer.com/NASA%20Space%20ROS%20Sim%20Summer%20Sprint%20Challenge%20Winners%20Announced.pdf"
 
 - date: 2024-11-06
   title: "CoRL 2024"
