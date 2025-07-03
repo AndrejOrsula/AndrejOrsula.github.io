@@ -188,7 +188,7 @@ impl BibliographyEntry {
                     "{} {}",
                     abbreviated
                         .split('(')
-                        .last()
+                        .next_back()
                         .unwrap()
                         .split(')')
                         .next()
