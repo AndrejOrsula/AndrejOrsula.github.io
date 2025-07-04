@@ -32,8 +32,8 @@ impl App {
         // Load the fonts
         crate::style::load_fonts(&cc.egui_ctx);
 
-        // Enable screen web reader support
-        cc.egui_ctx.options_mut(|o| o.screen_reader = true);
+        // // Enable screen web reader support
+        // cc.egui_ctx.options_mut(|o| o.screen_reader = true);
 
         // Construct the app state
         let app = if let Some(storage) = cc.storage {
