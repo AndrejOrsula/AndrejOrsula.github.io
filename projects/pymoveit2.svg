@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="180" viewBox="0 0 240 180" role="img" aria-labelledby="moveit-title moveit-desc">
+  <title id="moveit-title">MoveIt 2 robot trajectory planning</title>
+  <desc id="moveit-desc">A robot arm follows a curved planned path from its current pose to a marked goal pose.</desc>
+  <defs>
+    <linearGradient id="moveit-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101e32"/>
+      <stop offset="1" stop-color="#1c304b"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#moveit-bg)"/>
+  <g fill="none" stroke="#d9e6f4" stroke-opacity=".075" stroke-width=".7">
+    <path d="M18 40h204M18 64h204M18 88h204M18 112h204M18 136h204"/>
+    <path d="M42 22v136M66 22v136M90 22v136M114 22v136M138 22v136M162 22v136M186 22v136M210 22v136"/>
+  </g>
+  <!-- Planned trajectory leads from the current tool pose to the goal. -->
+  <path d="M93 66C116 34 144 34 163 52s21 32 27 43" fill="none" stroke="#83d9cc" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/>
+  <path d="M93 66C116 34 144 34 163 52s21 32 27 43" fill="none" stroke="#83d9cc" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1 6"/>
+  <g fill="#101e32" stroke="#83d9cc" stroke-width="1.8">
+    <circle cx="119" cy="46" r="3.5"/><circle cx="149" cy="44" r="3.5"/><circle cx="171" cy="64" r="3.5"/>
+  </g>
+  <!-- Goal frame and target pose. -->
+  <g fill="none" stroke="#efbd82" stroke-width="1.6" stroke-linecap="round">
+    <path d="M190 83v-7m0 43v7m-16-22h-7m46 0h7"/>
+    <path d="M185 96l11-7 11 7v14l-11 7-11-7z" stroke-opacity=".68"/>
+  </g>
+  <circle cx="196" cy="103" r="3" fill="#efbd82"/>
+  <!-- Current robot pose. -->
+  <path d="M48 139h46" stroke="#d9e6f4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M69 136l-2-37 27-33" fill="none" stroke="#d9e6f4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M69 136l-2-37 27-33" fill="none" stroke="#a3b4f7" stroke-width="2" stroke-linecap="round"/>
+  <path d="M54 143h31v7H54z" fill="#a3b4f7" fill-opacity=".28" stroke="#d9e6f4" stroke-width="1.5"/>
+  <circle cx="69" cy="136" r="7" fill="#1c304b" stroke="#83d9cc" stroke-width="2.5"/>
+  <circle cx="67" cy="99" r="6" fill="#1c304b" stroke="#83d9cc" stroke-width="2.5"/>
+  <circle cx="94" cy="66" r="5" fill="#1c304b" stroke="#d9e6f4" stroke-width="2"/>
+  <path d="M91 62l-5-8-4 1m10 10 8-4 3 3" fill="none" stroke="#d9e6f4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 151h184" stroke="#d9e6f4" stroke-opacity=".38" stroke-width="1.2"/>
+  <circle cx="212" cy="29" r="2" fill="#a3b4f7"/>
+</svg>

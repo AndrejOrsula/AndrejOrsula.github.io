@@ -1,0 +1,64 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;media-src 'self';style-src 'self' 'unsafe-inline';frame-src 'self' player.vimeo.com https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self' 'unsafe-inline' 'wasm-unsafe-eval'" http-equiv=Content-Security-Policy><meta content="width=device-width,initial-scale=1.0" name=viewport><meta content=https://andrejorsula.github.io name=base><title>
+Andrej Orsula • </title><link href=https://andrejorsula.github.io/img/favicon.svg rel=icon type=image/png><link title="Andrej Orsula - Atom Feed" href=https://andrejorsula.github.io/atom.xml rel=alternate type=application/atom+xml><link href="https://andrejorsula.github.io/main.css?h=045c365e19a4d50a64bb" rel=stylesheet><link href="https://andrejorsula.github.io/style.css?h=e695a3d28dc27e3b3d66" rel=stylesheet><link href="https://andrejorsula.github.io/skins/pastel_ocean.css?h=cc193b25ef80832a376d" rel=stylesheet><meta content="light dark" name=color-scheme><meta media="(prefers-color-scheme: light)" content=#5369c1 name=theme-color><meta media="(prefers-color-scheme: dark)" content=#7c91d9 name=theme-color><meta content="Postdoctoral Researcher in Robot Learning, Space Robotics, and Simulation" name=description><meta content="Postdoctoral Researcher in Robot Learning, Space Robotics, and Simulation" property=og:description><meta content="Andrej Orsula" property=og:title><meta content=article property=og:type><meta content=en_GB property=og:locale><meta content=https://andrejorsula.github.io/tags/ property=og:url><meta content="Andrej Orsula" property=og:site_name><noscript><link href=https://andrejorsula.github.io/no_js.css rel=stylesheet></noscript><script src=https://andrejorsula.github.io/js/initializeTheme.min.js></script><script defer src=https://andrejorsula.github.io/js/themeSwitcher.min.js></script><script src="https://andrejorsula.github.io/js/searchElasticlunr.min.js?h=7766a36e351f3f258884" defer></script><link as=font crossorigin fetchpriority=high href=https://andrejorsula.github.io/fonts/Inter4.woff2 rel=preload type=font/woff2><body><a href=#main-content id=skip-link>Skip to content</a><header><nav class=navbar><div class=nav-title><a title="Go to homepage" class=home-title href=https://andrejorsula.github.io/>Andrej Orsula</a></div><div class=nav-navs><ul><li><a class="nav-links no-hover-padding" href=https://andrejorsula.github.io/about/ title=About>About </a><li><a class="nav-links no-hover-padding" href=https://andrejorsula.github.io/research/ title=Research>Research </a><li><a class="nav-links no-hover-padding" href=https://andrejorsula.github.io/teaching/ title=Teaching>Teaching </a><li><a class="nav-links no-hover-padding" href=https://andrejorsula.github.io/projects/ title=Projects>Projects </a><li><a class="nav-links no-hover-padding" href=https://andrejorsula.github.io/blog/ title=Blog>Blog </a></ul></div><div class=nav-actions><div aria-label="Press $SHORTCUT to open search" class="search-icon interactive-icon js" title="Press $SHORTCUT to open search" id=search-button role=button tabindex=0><svg viewbox="0 0 24 24" aria-hidden=true fill=none focusable=false stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=1.8 xmlns=http://www.w3.org/2000/svg><circle cx=10.8 cy=10.8 r=6.3 /><path d="m15.4 15.4 5 5"/></svg></div><div aria-label="Toggle dark mode" class="theme-switcher js" title="Toggle dark/light mode" aria-pressed=false role=button tabindex=0></div><div aria-label="Reset mode to default" class="theme-resetter arrow" title="Reset mode to default" role=button tabindex=0></div><button aria-label="Toggle navigation menu" aria-expanded=false class=nav-hamburger type=button><span></span><span></span><span></span></button></div></nav></header><script>(function() {
+    var btn = document.querySelector('.nav-hamburger');
+    var nav = document.querySelector('.navbar');
+    if (!btn || !nav) return;
+
+    // Toggle hamburger menu
+    btn.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on nav link click
+    nav.querySelectorAll('.nav-navs .nav-links').forEach(function(a) {
+        a.addEventListener('click', function() {
+            nav.classList.remove('nav-open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && nav.classList.contains('nav-open')) {
+            nav.classList.remove('nav-open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('nav-open')) {
+            nav.classList.remove('nav-open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();
+        }
+    });
+
+    // Move search + dark/light theme toggle into the hamburger dropdown on mobile
+    var sb = nav.querySelector('.search-icon');
+    var ts = nav.querySelector('.theme-switcher');
+    var tr = nav.querySelector('.theme-resetter');
+    var dd = nav.querySelector('.nav-navs');
+    var ac = nav.querySelector('.nav-actions');
+    if (dd && ac) {
+        var row = document.createElement('div');
+        row.className = 'nav-tools-row';
+        var mq = window.matchMedia('(max-width: 960px)');
+        function syncTools(e) {
+            if (e.matches) {
+                if (sb) row.appendChild(sb);
+                if (ts) row.appendChild(ts);
+                if (tr) row.appendChild(tr);
+                dd.appendChild(row);
+            } else {
+                if (sb) ac.insertBefore(sb, btn);
+                if (ts) ac.insertBefore(ts, btn);
+                if (tr) ac.insertBefore(tr, btn);
+            }
+        }
+        mq.addEventListener('change', syncTools);
+        syncTools(mq);
+    }
+
+})();</script><div class=content id=main-content><h1 class="title-container section-title bottom-divider">all</h1><div class=two-columns id=tag-cloud><ul class=tags><li class=tags-item><a href=https://andrejorsula.github.io/tags/procgen/> procgen </a> <span> – </span>1 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/python/> python </a> <span> – </span>1 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/robot-learning/> robot-learning </a> <span> – </span>1 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/robotics/> robotics </a> <span> – </span>2 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/ros/> ros </a> <span> – </span>1 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/rust/> rust </a> <span> – </span>2 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/simulation/> simulation </a> <span> – </span>2 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/space-robotics/> space-robotics </a> <span> – </span>1 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/wasm/> wasm </a> <span> – </span>1 posts<li class=tags-item><a href=https://andrejorsula.github.io/tags/web/> web </a> <span> – </span>1 posts</ul></div></div><footer><section><nav class="socials nav-navs"><ul><li><a class="nav-links no-hover-padding social" href=https://andrejorsula.github.io/atom.xml> <img alt=feed loading=lazy src=https://andrejorsula.github.io/social_icons/rss.svg title=feed> </a><li class=js><a class="nav-links no-hover-padding social" data-encoded-email="b3JzdWxhLmFuZHJlakBnbWFpbC5jb20=" href=#><img alt=email loading=lazy src=https://andrejorsula.github.io/social_icons/email.svg title=email> </a><li><a class="nav-links no-hover-padding social" rel=" me" href=https://github.com/AndrejOrsula> <img alt=github loading=lazy src=https://andrejorsula.github.io/social_icons/github.svg title=github> </a><li><a class="nav-links no-hover-padding social" rel=" me" href=https://www.linkedin.com/in/AndrejOrsula> <img alt=linkedin loading=lazy src=https://andrejorsula.github.io/social_icons/linkedin.svg title=linkedin> </a><li><a class="nav-links no-hover-padding social" rel=" me" href=https://orcid.org/0000-0003-0706-1191> <img alt=orcid loading=lazy src=https://andrejorsula.github.io/social_icons/orcid.svg title=orcid> </a><li><a class="nav-links no-hover-padding social" href="https://scholar.google.com/citations?user=sbQC2dAAAAAJ" rel=" me"> <img alt=google-scholar loading=lazy src=https://andrejorsula.github.io/social_icons/google-scholar.svg title=google-scholar> </a><li><a class="nav-links no-hover-padding social" rel=" me" href=https://youtube.com/channel/UCqatO1yebNRswWSO2fxRWTg> <img alt=youtube loading=lazy src=https://andrejorsula.github.io/social_icons/youtube.svg title=youtube> </a></ul></nav><nav class=nav-navs></nav><div class=credits><small> </small></div></section><script async src=https://andrejorsula.github.io/js/decodeMail.min.js></script><div class="search-modal js" aria-labelledby=modalTitle id=searchModal role=dialog><h1 class=visually-hidden id=modalTitle>Search</h1><div id=modal-content><div id=searchBar><div aria-hidden=true class=search-icon><svg viewbox="0 0 24 24" aria-hidden=true fill=none focusable=false stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=1.8 xmlns=http://www.w3.org/2000/svg><circle cx=10.8 cy=10.8 r=6.3 /><path d="m15.4 15.4 5 5"/></svg></div><input aria-controls=results-container aria-expanded=false autocomplete=off id=searchInput placeholder=Search… role=combobox spellcheck=false><div aria-label="Clear search" class="close-icon interactive-icon" title="Clear search" id=clear-search role=button tabindex=0><svg viewbox="0 0 24 24" aria-hidden=true fill=none focusable=false stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=1.8 xmlns=http://www.w3.org/2000/svg><path d="m6 6 12 12m0-12L6 18"/></svg></div></div><div id=results-container><div id=results-info><span id=zero_results> No results</span><span id=one_results> 1 result</span><span id=many_results> $NUMBER results</span><span id=two_results> $NUMBER results</span><span id=few_results> $NUMBER results</span></div><div id=results role=listbox></div></div></div></div></footer>

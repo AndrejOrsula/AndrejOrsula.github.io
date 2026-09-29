@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://andrejorsula.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <site:metadata xmlns:site="urn:custom:metadata">
+        <site:base_url>https:&#x2F;&#x2F;andrejorsula.github.io</site:base_url>
+        <site:separator>
+            •
+        </site:separator>
+        <site:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader</site:about_feeds>
+        <site:visit_the_site>Visit website</site:visit_the_site>
+        <site:recent_posts>Recent posts</site:recent_posts>
+        <site:last_updated_on>Updated on $DATE</site:last_updated_on>
+        <site:default_theme></site:default_theme>
+        <site:post_listing_date>date</site:post_listing_date>
+        <site:current_section>ros</site:current_section>
+    </site:metadata><link rel="extra-stylesheet" href="https://andrejorsula.github.io/skins/pastel_ocean.css?h=cc193b25ef80832a376d" /><title>Andrej Orsula - ros</title>
+        <subtitle>Postdoctoral Researcher in Robot Learning, Space Robotics, and Simulation</subtitle>
+    <link href="https://andrejorsula.github.io/tags/ros/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://andrejorsula.github.io/tags/ros/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2022-01-01T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/ros/atom.xml</id>
+</feed>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120"
+     role="img" aria-labelledby="publication-title publication-desc">
+  <title id="publication-title">Publication illustration placeholder</title>
+  <desc id="publication-desc">A research paper with a small rising chart and text lines.</desc>
+  <rect width="160" height="120" fill="#101e32"/>
+  <path d="M33 17h67l25 25v62H33z" fill="#1c304b" stroke="#d9e6f4" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M100 17v25h25" fill="none" stroke="#d9e6f4" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M45 48h45M45 57h42M45 66h34" stroke="#a3b4f7" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M48 91V78h12v13m5 0V70h12v21m5 0V61h12v30" fill="none" stroke="#83d9cc" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M46 93h52" stroke="#d9e6f4" stroke-opacity=".65" stroke-width="2"/>
+</svg>
