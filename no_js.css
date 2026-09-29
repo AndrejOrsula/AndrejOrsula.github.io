@@ -1,1 +1,33 @@
+/*
+  Intentional full override of the pinned theme static/no_js.css at revision
+  3896c1597c847ae31528d2e59b24e01d26a6485a, loaded inside <noscript> by
+  templates/partials/header.html. Keeps the theme rule that hides
+  JavaScript-only controls (including the mobile menu toggle) and, at the
+  collapsible-menu breakpoint of sass/style.scss, shows the navigation links
+  as a wrapped row below the title instead of the closed dropdown.
+*/
 .js{display:none}
+
+@media (max-width: 960px) {
+    .navbar { flex-wrap: wrap !important; }
+    .navbar > .nav-navs {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        background: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        border: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+    }
+    .navbar > .nav-navs ul {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem !important;
+    }
+}

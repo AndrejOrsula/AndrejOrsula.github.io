@@ -30,16 +30,24 @@
         status.setAttribute("role", isError ? "alert" : "status");
     }
 
-    function setOverlay(container, visible, label) {
+    // `mode` is "retry", "idle" or empty (visibility only). The button is named
+    // by its visible text; a project overlay's aria-label only appends the demo
+    // title after that text, so the visible label stays part of the name.
+    function setOverlay(container, visible, mode) {
         var overlay = container.querySelector(".wasm-overlay");
         if (!overlay) return;
         overlay.hidden = !visible;
         overlay.style.display = visible ? "" : "none";
-        if (label) overlay.setAttribute("aria-label", label);
+        if (!mode) return;
+        var isProject = container.dataset.demoKind === "project";
+        var text = mode === "retry" ? "Try again" : (isProject ? "Open preview" : "Load Demo");
         var buttonLabel = overlay.querySelector(".wasm-btn");
-        if (buttonLabel && label) {
-            buttonLabel.textContent = label.indexOf("Retry") === 0 ? "Try again" :
-                (container.dataset.demoKind === "project" ? "Open preview" : "Load Demo");
+        if (buttonLabel) buttonLabel.textContent = text;
+        if (overlay.hasAttribute("aria-label")) {
+            var frame = container.querySelector(".wasm-iframe");
+            var demoTitle = frame ? frame.getAttribute("title") : "";
+            var action = mode === "retry" ? "Try again: open preview" : "Open preview";
+            overlay.setAttribute("aria-label", demoTitle ? action + " for " + demoTitle : action);
         }
     }
 
@@ -64,8 +72,6 @@
         var record = getRecord(container);
         if (generation !== undefined && generation !== record.generation) return;
         var wasLoading = container.dataset.wasmState === "loading";
-        var frame = container.querySelector(".wasm-iframe");
-        var demoTitle = frame ? frame.getAttribute("title") : "WASM demo";
         var detail = message || "The interactive demo could not start. You can retry or open the static fallback.";
         cancelPending(container);
         replaceFrame(container);
@@ -75,7 +81,7 @@
         container.classList.add("wasm-error");
         setFrameVisibility(container, false);
         setStatus(container, detail, true, true);
-        setOverlay(container, true, "Retry " + demoTitle);
+        setOverlay(container, true, "retry");
         var unload = container.querySelector(".wasm-unload");
         if (unload) unload.hidden = true;
         var overlay = container.querySelector(".wasm-overlay");
@@ -202,7 +208,7 @@
         container.removeAttribute("aria-busy");
         container.classList.remove("wasm-loaded", "wasm-error");
         setFrameVisibility(container, false);
-        setOverlay(container, true, container.dataset.demoKind === "project" ? "Open preview" : "Load Demo");
+        setOverlay(container, true, "idle");
         setStatus(container, wasActive ? "Preview closed." : "", wasActive, false);
         var overlay = container.querySelector(".wasm-overlay");
         if (overlay) overlay.focus();

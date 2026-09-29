@@ -17,7 +17,8 @@
         <subtitle>Postdoctoral Researcher in Robot Learning, Space Robotics, and Simulation</subtitle>
     <link href="https://andrejorsula.github.io/tags/wasm/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://andrejorsula.github.io/tags/wasm/" rel="alternate" type="text/html"/>
-    <generator uri="https://www.getzola.org/">Zola</generator><updated>2026-02-22T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/wasm/atom.xml</id><entry xml:lang="en">
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2026-02-22T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/wasm/atom.xml</id>
+    <entry xml:lang="en">
         <title>Interactive WASM Demos with egui</title>
         <published>2026-02-22T00:00:00+00:00</published>
         <updated>2026-02-22T00:00:00+00:00</updated>

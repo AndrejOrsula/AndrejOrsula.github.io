@@ -8,16 +8,13 @@
         return entry ? entry.querySelector(selector) : null;
     }
 
+    // The status is a live region that stays rendered (visually hidden when
+    // idle) so screen readers announce text changes; never toggle `hidden`.
     function setStatus(button, text, visible) {
         var status = relatedElement(button, ".publication-copy-status");
         if (!status) return;
         status.textContent = text;
-        status.hidden = !visible;
-        if (visible) {
-            status.classList.remove("visually-hidden");
-        } else {
-            status.classList.add("visually-hidden");
-        }
+        status.classList.toggle("visually-hidden", !visible);
     }
 
     function showFallback(button) {
@@ -59,7 +56,9 @@
         clearResetTimer(button);
         restoreButton(button);
         button.dataset.copyState = "pending";
-        button.disabled = true;
+        // aria-disabled (not disabled) keeps keyboard focus on the button; the
+        // copyState guard above ignores activations while pending.
+        button.setAttribute("aria-disabled", "true");
 
         var write = writeText
             ? Promise.resolve().then(function () { return writeText(citation); })
@@ -80,7 +79,7 @@
             showFallback(button);
         }).then(function () {
             button.dataset.copyState = "idle";
-            button.disabled = false;
+            button.removeAttribute("aria-disabled");
         });
     }
 
