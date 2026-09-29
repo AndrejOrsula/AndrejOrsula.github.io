@@ -373,7 +373,7 @@ function __wbg_get_imports() {
         __wbg_enable_9fca6962aca10f48: function(arg0, arg1) {
             arg0.enable(arg1 >>> 0);
         },
-        __wbg_error_3ae8b625f3d71eab: function(arg0, arg1) {
+        __wbg_error_5a019734875b3676: function(arg0, arg1) {
             let deferred0_0;
             let deferred0_1;
             try {
@@ -817,12 +817,12 @@ function __wbg_get_imports() {
             const ret = new Uint8Array(arg0);
             return ret;
         },
-        __wbg_new_bebc3f4757acf305: function() {
-            const ret = new Object();
+        __wbg_new_9090cad7737fef55: function() {
+            const ret = new Error();
             return ret;
         },
-        __wbg_new_c9eb879b62d87c93: function() {
-            const ret = new Error();
+        __wbg_new_bebc3f4757acf305: function() {
+            const ret = new Object();
             return ret;
         },
         __wbg_new_d0cecdd4b12bd7a1: function() { return handleError(function (arg0) {
@@ -1048,7 +1048,7 @@ function __wbg_get_imports() {
             const ret = arg0.size;
             return ret;
         },
-        __wbg_stack_9ed1bd1924f4f869: function(arg0, arg1) {
+        __wbg_stack_0e9ceb67ce7245b8: function(arg0, arg1) {
             const ret = arg1.stack;
             const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
             const len1 = WASM_VECTOR_LEN;
