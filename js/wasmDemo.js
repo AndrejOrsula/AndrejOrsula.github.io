@@ -40,7 +40,7 @@
         overlay.style.display = visible ? "" : "none";
         if (!mode) return;
         var isProject = container.dataset.demoKind === "project";
-        var text = mode === "retry" ? "Try again" : (isProject ? "Open preview" : "Load Demo");
+        var text = mode === "retry" ? "Try again" : (isProject ? "Open preview" : "Load demo");
         var buttonLabel = overlay.querySelector(".wasm-btn");
         if (buttonLabel) buttonLabel.textContent = text;
         if (overlay.hasAttribute("aria-label")) {
@@ -72,7 +72,7 @@
         var record = getRecord(container);
         if (generation !== undefined && generation !== record.generation) return;
         var wasLoading = container.dataset.wasmState === "loading";
-        var detail = message || "The interactive demo could not start. You can retry or open the static fallback.";
+        var detail = message || "The interactive demo could not start. Try again.";
         cancelPending(container);
         replaceFrame(container);
         container.dataset.wasmState = "error";
@@ -129,7 +129,7 @@
 
     function failHttp(container, generation, response) {
         if (response.status >= 400 && response.status !== 405 && response.status !== 501) {
-            showError(container, "The interactive demo failed to load (HTTP " + response.status + ").", generation);
+            showError(container, "The interactive demo could not load (HTTP " + response.status + "). Try again.", generation);
             return true;
         }
         return false;
@@ -191,7 +191,7 @@
 
         if (container.dataset.demoKind === "project") {
             record.timer = window.setTimeout(function () {
-                showError(container, "The demo did not report that it was ready. Retry or open the full-page demo.", generation);
+                showError(container, "The demo took too long to start. Try again, or open the full-page demo.", generation);
             }, STARTUP_TIMEOUT_MS);
         }
         navigate(container, source, generation);
@@ -225,7 +225,7 @@
             if (container.dataset.demoKind !== "project") {
                 markLoaded(container, record.generation);
             } else {
-                setStatus(container, "Demo page loaded; waiting for its controls to become ready…", true, false);
+                setStatus(container, "Demo page loaded. Waiting for it to start…", true, false);
             }
         });
         frame.addEventListener("error", function () {
@@ -276,7 +276,7 @@
             if (container.dataset.demoKind === "project") {
                 container.setAttribute("aria-busy", "true");
                 record.timer = window.setTimeout(function () {
-                    showError(container, "The demo did not report that it was ready. Retry or open the full-page demo.", record.generation);
+                    showError(container, "The demo took too long to start. Try again, or open the full-page demo.", record.generation);
                 }, STARTUP_TIMEOUT_MS);
             }
         } else {

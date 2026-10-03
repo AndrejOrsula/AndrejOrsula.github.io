@@ -343,7 +343,7 @@
         this.canvas.addEventListener("webglcontextlost", function (event) {
             event.preventDefault();
             self.teardown();
-            self.setStatus("The graphics context was lost. Start the viewer again to reload it.", true);
+            self.setStatus("The 3D view stopped because the graphics context was lost. Press “Open 3D viewer” to reload it.", true);
         });
         if (window.ResizeObserver) {
             new ResizeObserver(function () { if (self.gl) self.draw(); }).observe(this.stage);
@@ -353,7 +353,7 @@
     Viewer.prototype.activate = function () {
         var gl = this.canvas.getContext("webgl2", { antialias: true, alpha: true, premultipliedAlpha: true });
         if (!gl) {
-            this.setStatus("This browser cannot show the 3D viewer because WebGL 2 is unavailable. The rendered image and the GLB downloads remain available.", true);
+            this.setStatus("This browser cannot show the 3D viewer because WebGL 2 is unavailable. The image and the GLB downloads still work.", true);
             return;
         }
         try {
