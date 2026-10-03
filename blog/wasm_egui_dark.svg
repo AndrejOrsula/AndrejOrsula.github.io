@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Rust code compiled to WebAssembly, running as a calculator in a browser</title>
+<desc id="d">A code editor beside a browser window that shows a calculator.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c202b"/><stop offset="1" stop-color="#161922"/></linearGradient>
+<filter id="s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity=".45"/></filter></defs>
+<rect width="1200" height="675" fill="url(#g)"/>
+<g transform="translate(-60 60) scale(1.1)">
+<rect x="240" y="112" width="420" height="300" rx="14" fill="#262b38" stroke="#373e52" filter="url(#s)"/>
+<rect x="262" y="130" width="74" height="10" rx="5" fill="#8ea0e0" opacity=".55"/>
+<rect x="348" y="130" width="52" height="10" rx="5" fill="#323849"/>
+<path d="M240 156h420" stroke="#323849" stroke-width="2"/>
+<rect x="270" y="179" width="26" height="10" rx="5" fill="#8ea0e0"/>
+<rect x="306" y="179" width="70" height="10" rx="5" fill="#6b7591"/>
+<rect x="386" y="179" width="14" height="10" rx="5" fill="#434b61"/>
+<rect x="296" y="207" width="30" height="10" rx="5" fill="#8ea0e0"/>
+<rect x="336" y="207" width="54" height="10" rx="5" fill="#6b7591"/>
+<rect x="400" y="207" width="88" height="10" rx="5" fill="#6cc3b4"/>
+<rect x="296" y="235" width="42" height="10" rx="5" fill="#6b7591"/>
+<rect x="348" y="235" width="24" height="10" rx="5" fill="#8ea0e0"/>
+<rect x="382" y="235" width="60" height="10" rx="5" fill="#6b7591"/>
+<rect x="322" y="263" width="22" height="10" rx="5" fill="#8ea0e0"/>
+<rect x="354" y="263" width="96" height="10" rx="5" fill="#6b7591"/>
+<rect x="322" y="291" width="64" height="10" rx="5" fill="#6cc3b4"/>
+<rect x="396" y="291" width="40" height="10" rx="5" fill="#6b7591"/>
+<rect x="296" y="319" width="14" height="10" rx="5" fill="#434b61"/>
+<rect x="296" y="347" width="30" height="10" rx="5" fill="#8ea0e0"/>
+<rect x="336" y="347" width="110" height="10" rx="5" fill="#6b7591"/>
+<rect x="270" y="375" width="14" height="10" rx="5" fill="#434b61"/>
+<rect x="560" y="66" width="400" height="372" rx="16" fill="#262b38" stroke="#373e52" filter="url(#s)"/>
+<rect x="640" y="84" width="240" height="18" rx="9" fill="#1f2330"/>
+<path d="M560 120h400" stroke="#323849" stroke-width="2"/>
+<rect x="596" y="138" width="328" height="58" rx="8" fill="#1f2330"/>
+<rect x="850" y="150" width="56" height="6" rx="3" fill="#6b7591"/>
+<rect x="814" y="166" width="92" height="16" rx="5" fill="#d5dbec"/>
+<rect x="596" y="208" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="680" y="208" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="764" y="208" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="848" y="208" width="76" height="44" rx="7" fill="#363f5e"/>
+<rect x="596" y="260" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="680" y="260" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="764" y="260" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="848" y="260" width="76" height="44" rx="7" fill="#363f5e"/>
+<rect x="596" y="312" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="680" y="312" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="764" y="312" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="848" y="312" width="76" height="44" rx="7" fill="#363f5e"/>
+<rect x="596" y="364" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="680" y="364" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="764" y="364" width="76" height="44" rx="7" fill="#2f3546"/>
+<rect x="848" y="364" width="76" height="44" rx="7" fill="#7c91d9"/>
+</g>
+</svg>
