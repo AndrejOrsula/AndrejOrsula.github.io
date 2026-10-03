@@ -27,6 +27,6 @@
         </author>
         <link rel="alternate" href="https://andrejorsula.github.io/blog/wasm-egui/" type="text/html"/>
         <id>https://andrejorsula.github.io/blog/wasm-egui/</id>
-        <summary type="html">A few pages of this site run Rust in the browser with WebAssembly.</summary>
+        <summary type="html">A small Rust calculator that runs in the browser with WebAssembly.</summary>
         </entry>
 </feed>
