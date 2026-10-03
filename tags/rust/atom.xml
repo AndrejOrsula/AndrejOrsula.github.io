@@ -27,6 +27,6 @@
         </author>
         <link rel="alternate" href="https://andrejorsula.github.io/blog/wasm-egui/" type="text/html"/>
         <id>https://andrejorsula.github.io/blog/wasm-egui/</id>
-        <summary type="html">How this site runs Rust in the browser: an egui calculator, gymnasium_rs, training with Oniro and a 3D viewer for SimForge.</summary>
+        <summary type="html">A few pages of this site run Rust in the browser with WebAssembly.</summary>
         </entry>
 </feed>
