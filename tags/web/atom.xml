@@ -17,16 +17,16 @@
         <subtitle>Postdoctoral Researcher in Robot Learning, Space Robotics, and Simulation</subtitle>
     <link href="https://andrejorsula.github.io/tags/web/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://andrejorsula.github.io/tags/web/" rel="alternate" type="text/html"/>
-    <generator uri="https://www.getzola.org/">Zola</generator><updated>2026-02-22T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/web/atom.xml</id>
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2026-10-03T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/web/atom.xml</id>
     <entry xml:lang="en">
-        <title>Interactive WASM Demos with egui</title>
+        <title>Interactive WASM Demos</title>
         <published>2026-02-22T00:00:00+00:00</published>
-        <updated>2026-02-22T00:00:00+00:00</updated>
+        <updated>2026-10-03T00:00:00+00:00</updated>
         <author>
             <name>Andrej Orsula</name>
         </author>
         <link rel="alternate" href="https://andrejorsula.github.io/blog/wasm-egui/" type="text/html"/>
         <id>https://andrejorsula.github.io/blog/wasm-egui/</id>
-        <summary type="html">Embedding interactive Rust-based WASM demos in a static site using egui, Trunk, and Zola.</summary>
+        <summary type="html">How this site runs Rust in the browser: an egui calculator, gymnasium_rs environments, in-browser training with Oniro, and a 3D viewer for SimForge assets.</summary>
         </entry>
 </feed>
