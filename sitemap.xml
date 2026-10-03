@@ -19,11 +19,11 @@
     </url>
     <url>
         <loc>https://andrejorsula.github.io/projects/drl-grasping/</loc>
-        <lastmod>2020-10-06</lastmod>
+        <lastmod>2020-10-05</lastmod>
     </url>
     <url>
         <loc>https://andrejorsula.github.io/projects/gymnasium-rs/</loc>
-        <lastmod>2026-10-03</lastmod>
+        <lastmod>2023-06-28</lastmod>
     </url>
     <url>
         <loc>https://andrejorsula.github.io/projects/pymoveit2/</loc>
@@ -39,7 +39,7 @@
     </url>
     <url>
         <loc>https://andrejorsula.github.io/projects/space-robotics-bench/</loc>
-        <lastmod>2024-10-20</lastmod>
+        <lastmod>2024-10-21</lastmod>
     </url>
     <url>
         <loc>https://andrejorsula.github.io/research/</loc>
@@ -54,7 +54,7 @@
         <loc>https://andrejorsula.github.io/tags/python/</loc>
     </url>
     <url>
-        <loc>https://andrejorsula.github.io/tags/robot-learning/</loc>
+        <loc>https://andrejorsula.github.io/tags/rl/</loc>
     </url>
     <url>
         <loc>https://andrejorsula.github.io/tags/robotics/</loc>
@@ -69,7 +69,7 @@
         <loc>https://andrejorsula.github.io/tags/simulation/</loc>
     </url>
     <url>
-        <loc>https://andrejorsula.github.io/tags/space-robotics/</loc>
+        <loc>https://andrejorsula.github.io/tags/space/</loc>
     </url>
     <url>
         <loc>https://andrejorsula.github.io/tags/wasm/</loc>

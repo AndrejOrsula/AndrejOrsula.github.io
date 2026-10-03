@@ -12,10 +12,10 @@
         <site:last_updated_on>Updated on $DATE</site:last_updated_on>
         <site:default_theme></site:default_theme>
         <site:post_listing_date>date</site:post_listing_date>
-        <site:current_section>space-robotics</site:current_section>
-    </site:metadata><link rel="extra-stylesheet" href="https://andrejorsula.github.io/skins/pastel_ocean.css?h=cc193b25ef80832a376d" /><title>Andrej Orsula - space-robotics</title>
+        <site:current_section>space</site:current_section>
+    </site:metadata><link rel="extra-stylesheet" href="https://andrejorsula.github.io/skins/pastel_ocean.css?h=cc193b25ef80832a376d" /><title>Andrej Orsula - space</title>
         <subtitle>Postdoctoral Researcher in Robot Learning, Space Robotics, and Simulation</subtitle>
-    <link href="https://andrejorsula.github.io/tags/space-robotics/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="https://andrejorsula.github.io/tags/space-robotics/" rel="alternate" type="text/html"/>
-    <generator uri="https://www.getzola.org/">Zola</generator><updated>2026-02-22T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/space-robotics/atom.xml</id>
+    <link href="https://andrejorsula.github.io/tags/space/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://andrejorsula.github.io/tags/space/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2026-02-22T00:00:00+00:00</updated><id>https://andrejorsula.github.io/tags/space/atom.xml</id>
 </feed>
