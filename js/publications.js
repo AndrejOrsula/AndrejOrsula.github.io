@@ -68,7 +68,8 @@
             if (label) label.textContent = "Copied!";
             if (icon) icon.style.display = "none";
             button.classList.add("copied");
-            setStatus(button, "Citation copied to clipboard.", true);
+            // The button already reads "Copied!"; the message is for screen readers only.
+            setStatus(button, "Citation copied to clipboard.", false);
             button.publicationResetTimer = window.setTimeout(function () {
                 restoreButton(button);
                 setStatus(button, "", false);
