@@ -4,9 +4,13 @@
   templates/partials/header.html. Keeps the theme rule that hides
   JavaScript-only controls (including the mobile menu toggle) and, at the
   collapsible-menu breakpoint of sass/style.scss, shows the navigation links
-  as a wrapped row below the title instead of the closed dropdown.
+  as a wrapped row below the title instead of the closed dropdown. The
+  `!important` lets it win over component display rules (demo and 3D viewer
+  controls), and the asset explorer lists every GLB download, which the
+  viewer script otherwise narrows to the current selection.
 */
-.js{display:none}
+.js{display:none !important}
+.asset-explorer .asset-actions .asset-download[hidden]{display:inline !important}
 
 @media (max-width: 960px) {
     .navbar { flex-wrap: wrap !important; }

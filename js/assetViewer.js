@@ -1,7 +1,7 @@
 // Interactive viewer for the SimForge asset explorer (templates/shortcodes/asset_explorer.html).
 // It renders the glTF 2.0 binary files listed by the page with WebGL 2 and
 // supports only what those files use: triangle meshes with float positions,
-// normals and texture coordinates, and one PBR material with base colour,
+// normals and texture coordinates, and one PBR material with base color,
 // normal and metallic-roughness textures stored as PNG, JPEG or WebP
 // (EXT_texture_webp). Nothing is fetched until the visitor starts the viewer.
 (function () {
@@ -356,6 +356,12 @@
             this.setStatus("This browser cannot show the 3D viewer because WebGL 2 is unavailable. The image and the GLB downloads still work.", true);
             return;
         }
+        // After a lost context the canvas returns the same context until the
+        // browser restores it.
+        if (gl.isContextLost()) {
+            this.setStatus("The graphics context is still being restored. Try “Open 3D viewer” again in a moment.", true);
+            return;
+        }
         try {
             this.program = this.createProgram(gl);
         } catch (error) {
@@ -382,6 +388,7 @@
         this.request = null;
         this.gl = null;
         this.scene = null;
+        this.root.removeAttribute("aria-busy");
         this.root.classList.remove("asset-active");
         this.canvas.hidden = true;
         this.start.hidden = false;
