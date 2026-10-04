@@ -135,6 +135,33 @@
         return false;
     }
 
+    // An embedded document sees the system color scheme, not the page's theme
+    // toggle, so a calculator demo gets the page theme as `#light` or `#dark`
+    // and follows changes to it (demos/calc/src/lib.rs).
+    function pageTheme() {
+        var theme = document.documentElement.getAttribute("data-theme");
+        if (theme === "light" || theme === "dark") return theme;
+        return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function themedSource(container, source) {
+        return container.dataset.demoKind === "project" ? source : source.split("#")[0] + "#" + pageTheme();
+    }
+
+    function syncThemes() {
+        containers.forEach(function (container) {
+            if (container.dataset.demoKind === "project") return;
+            var frame = container.querySelector(".wasm-iframe");
+            var current;
+            try { current = frame && frame.contentWindow.location.href; } catch (_) { return; }
+            if (!current || current === "about:blank") return;
+            var themed = themedSource(container, current);
+            // A fragment-only navigation: the demo keeps running and no
+            // history entry is added.
+            if (themed !== current) frame.contentWindow.location.replace(themed);
+        });
+    }
+
     function setFrameSource(record, frame, source) {
         record.navigationStarted = true;
         frame.setAttribute("src", source);
@@ -145,7 +172,7 @@
         var frame = container.querySelector(".wasm-iframe");
         if (!frame || generation !== record.generation) return;
         if (!window.fetch) {
-            setFrameSource(record, frame, source);
+            setFrameSource(record, frame, themedSource(container, source));
             return;
         }
 
@@ -155,11 +182,11 @@
         if (abort) options.signal = abort.signal;
         window.fetch(source, options).then(function (response) {
             if (generation !== record.generation || container.dataset.wasmState !== "loading") return;
-            if (!failHttp(container, generation, response)) setFrameSource(record, frame, source);
+            if (!failHttp(container, generation, response)) setFrameSource(record, frame, themedSource(container, source));
         }, function (error) {
             if (generation !== record.generation || container.dataset.wasmState !== "loading" ||
                 (error && error.name === "AbortError")) return;
-            setFrameSource(record, frame, source);
+            setFrameSource(record, frame, themedSource(container, source));
         });
     }
 
@@ -239,6 +266,8 @@
             if (!current || current.readyState !== "complete") return false;
             var currentUrl = new URL(current.URL || current.location.href, window.location.href);
             var requestedUrl = new URL(frame.getAttribute("data-src"), window.location.href);
+            currentUrl.hash = "";
+            requestedUrl.hash = "";
             return currentUrl.href === requestedUrl.href;
         } catch (_) {
             return false;
@@ -286,6 +315,14 @@
     }
 
     containers.forEach(bindContainer);
+
+    if (window.MutationObserver) {
+        new window.MutationObserver(syncThemes).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    }
+    if (window.matchMedia) {
+        var systemScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        if (systemScheme.addEventListener) systemScheme.addEventListener("change", syncThemes);
+    }
 
     window.addEventListener("message", function (event) {
         var data = event.data;
